@@ -1,0 +1,28 @@
+{
+    "name": "vicfntm/sms-service",
+    "description": "Sakartvelo sms service",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "v.derevianko",
+            "email": "4944995@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "vicfntm\\smsService\\" : "src/"
+        }
+    },
+    "require": {
+        "guzzle/guzzle": "3.9.x-dev"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "vicfntm\\smsService\\WiFisherServiceProvider"
+            ]
+        }
+    }
+}
