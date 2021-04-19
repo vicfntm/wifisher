@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "vicfntm\\wifisher\\" : "src/"
+            "Vicfntm\\Wifisher\\" : "src/"
         }
     },
     "require": {
@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "vicfntm\\wifisher\\WiFisherServiceProvider"
+                "Vicfntm\\Wifisher\\WiFisherServiceProvider"
             ]
         }
     }
