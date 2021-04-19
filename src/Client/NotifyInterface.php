@@ -1,7 +1,7 @@
 <?php
 
 
-namespace vicfntm\smsService\Client;
+namespace Vicfntm\Wifisher\Client;
 
 
 interface NotifyInterface {

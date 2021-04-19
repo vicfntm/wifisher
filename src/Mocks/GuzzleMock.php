@@ -1,7 +1,7 @@
 <?php
 
 
-namespace vicfntm\smsService\Mocks;
+namespace Vicfntm\Wifisher\Mocks;
 
 
 class GuzzleMock

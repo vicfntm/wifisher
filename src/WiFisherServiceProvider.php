@@ -1,12 +1,12 @@
 <?php
 
 
-namespace vicfntm\smsService;
+namespace Vicfntm\Wifisher;
 
 use Illuminate\Support\ServiceProvider;
-use vicfntm\smsService\Client\NotifyInterface;
-use vicfntm\smsService\Client\SmsClient;
-use vicfntm\smsService\Mocks\GuzzleMock;
+use Vicfntm\Wifisher\Client\NotifyInterface;
+use Vicfntm\Wifisher\Client\SmsClient;
+use Vicfntm\Wifisher\Mocks\GuzzleMock;
 
 class WiFisherServiceProvider extends ServiceProvider
 {
