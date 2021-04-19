@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Vicfntm\Wifisher\Client\NotifyInterface;
 use Vicfntm\Wifisher\Client\SmsClient;
 use Vicfntm\Wifisher\Mocks\GuzzleMock;
+use GuzzleHttp\Client;
 
 class WiFisherServiceProvider extends ServiceProvider
 {
@@ -36,7 +37,7 @@ class WiFisherServiceProvider extends ServiceProvider
         $this->app->when(SmsClient::class)->needs('$client')
             ->give(
                 function () {
-                    return new \GuzzleHttp\Client(
+                    return new Client(
                         [
                             'curl'   => [CURLOPT_SSL_VERIFYPEER => false],
                             'verify' => false,

@@ -17,7 +17,7 @@ final class SmsClient extends Client
     public function send(...$params)
     {
         [$url,] = $this->payloadFactory('send', $this->tagId, $this->defineArgs(func_get_args()));
-        $this->response = $this->client->request('GET', $url);
+        $this->response = $this->client->request('GET', $url, []);
 
         return $this->response;
     }
