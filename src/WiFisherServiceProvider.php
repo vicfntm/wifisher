@@ -26,7 +26,7 @@ class WiFisherServiceProvider extends ServiceProvider
     {
         app()->bind(NotifyInterface::class, SmsClient::class);
 
-        if (app()->environment('test', 'testing', 'local')) {
+        if (! app()->environment('prod', 'production')) {
             $this->setLocalBindings();
         } else {
             $this->setProdBindings();
