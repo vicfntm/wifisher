@@ -37,6 +37,12 @@ final class SmsClient extends Client
         $this->response = $this->client->request('GET', $url, []);
     }
 
+    public function sendPostSms(array $data, $activityId = 'default_activity'): void
+    {
+        [$url, $payload] = $this->payloadFactory('sendPostSms', $activityId, $data);
+        $this->response = $this->client->request('POST', $url, $payload);
+    }
+
     private function payloadFactory(string $strategy, ...$params): array
     {
         $basement = $this->config['base_host'];
@@ -48,7 +54,8 @@ final class SmsClient extends Client
                 $url = sprintf('%s?%s', $basement . $this->config['set_tag_uri'], $queryParams);
                 $payload = ['tag_name' => $activity];
                 break;
-            case 'sendSms' || 'send':
+            case 'sendSms':
+            case'send' :
                 [$activity, [$phone, $text]] = $params;
                 $queryParams = http_build_query(
                     [
@@ -60,6 +67,23 @@ final class SmsClient extends Client
                     ]
                 );
                 $url = sprintf('%s?%s', $basement . $this->config['send_sms_uri'], $queryParams);
+
+                break;
+            case 'sendPostSms':
+                [$activity, [$phone, $text]] = $params;
+                $queryParams = http_build_query(
+                    [
+                        'access_key'  => $this->config['access_key'],
+                        'sender_name' => $this->config['sender_name'],
+                        'number'      => $phone,
+                        'tag_id'      => $activity,
+                    ]
+                );
+                $url = sprintf('%s?%s', $basement . $this->config['send_sms_uri'], $queryParams);
+                $payload = [
+                    'text' => $text,
+                ];
+
                 break;
             default:
                 [$activity, [$phone, $text]] = $params;
