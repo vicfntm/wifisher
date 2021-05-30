@@ -64,7 +64,7 @@ final class SmsClient extends Client
                         'number'      => $phone,
                         'text'        => $text,
                         'tag_id'      => $activity,
-                    ], '', '',  PHP_QUERY_RFC3986
+                    ], '', '&',  PHP_QUERY_RFC3986
                 );
                 $url = sprintf('%s?%s', $basement . $this->config['send_sms_uri'], $queryParams);
 
