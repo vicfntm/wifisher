@@ -24,4 +24,8 @@ class GuzzleMock
     {
         return self::RES;
     }
+    public function GetResponse() : self
+    {
+        return $this;
+    }
 }
