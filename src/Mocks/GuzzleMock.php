@@ -15,9 +15,9 @@ class GuzzleMock
         return $this;
     }
 
-    public function getBody(): string
+    public function getBody(): self
     {
-        return self::RES;
+        return $this;
     }
 
     public function getContents(): string
